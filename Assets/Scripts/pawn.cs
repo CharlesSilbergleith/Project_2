@@ -1,0 +1,101 @@
+using UnityEngine;
+
+public class Pawn : MonoBehaviour
+{
+    //the normal speed in which the pawn moves
+    public float moveSpeed;
+
+    //the speed in which the pawn rotates
+    public float rotateValue;
+
+    //turbo speed or i call it sprint speed,
+    // speed that the pawn goes when shift is pressed
+    public float sprintSpeed;
+
+    // how far the teleport is going to go
+    public float teleportDistense;
+
+
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+    //function called by the controller to move forward by a speed set by deginerns 
+    //has the parameter of moveSpeed made in the pawn object
+    public void moveForward( float moveSpeed) {
+        transform.position +=(transform.up* moveSpeed* Time.deltaTime);
+    }
+
+
+    //function called by the controller to move backwards by a speed set by deginerns 
+    //has the parameter of moveSpeed made in the pawn object
+    public void moveBackward(float moveSpeed)
+    {
+        transform.position += (-transform.up * moveSpeed * Time.deltaTime);
+    }
+
+
+    //function called by the controller to turn left by a speed set by deginerns 
+    //has the parameter of rotateValue made in the pawn object
+    public void turnLeft(float rotateValue) {
+        transform.Rotate(0.0f, 0.0f, rotateValue * Time.deltaTime);
+    
+    }
+
+
+    //function called by the controller to turn right by a speed set by deginerns 
+    //has the parameter of rotateValue made in the pawn object
+    public void turnRight(float rotateValue)
+    {
+        transform.Rotate(0.0f, 0.0f,- rotateValue * Time.deltaTime);
+
+    }
+
+
+    //function called by the controller to teleport up by a speed set by deginerns 
+    //has the parameter of teleportDistense made in the pawn object
+    public void teleportUp( float teleportDistense) {
+        transform.position+= Vector3.up * teleportDistense;
+    }
+
+
+    //function called by the controller to teleport down by a speed set by deginerns 
+    //has the parameter of teleportDistense made in the pawn object
+
+    public void teleportDown(float teleportDistense)
+    {
+        transform.position += Vector3.down * teleportDistense;
+    }
+
+
+    //function called by the controller to teleport left by a speed set by deginerns 
+    //has the parameter of teleportDistense made in the pawn object
+
+    public void teleportLeft(float teleportDistense)
+    {
+        transform.position += Vector3.left * teleportDistense;
+    }
+
+
+    //function called by the controller to teleport rigth by a speed set by deginerns 
+    //has the parameter of teleportDistense made in the pawn object
+
+    public void teleportRight(float teleportDistense)
+    {
+        transform.position += Vector3.right * teleportDistense;
+    }
+
+
+
+
+
+
+}
