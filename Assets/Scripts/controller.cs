@@ -14,16 +14,26 @@ public class Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+            Debug.Log("Application Quit!");
+        }
         //calls the function every frame to see what the inputs are
         makeDesisions();
     }
 
     private void makeDesisions() {
-        //ever fram this is called to check what is being pressed
+        //ever frame this is called to check what is being pressed
+
+        if (Input.GetKeyDown(pawn.inputkey)) {
+            pawn.RandomTp(pawn.randomRangeX1, pawn.randomRangeX2, pawn.randomRangeY1, pawn.randomRangeY2);
+        }
 
 
-        //teleport up by a distense set by desighners 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+
+            //teleport up by a distense set by desighners 
+            if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             pawn.teleportUp(pawn.teleportDistense);
         }
@@ -50,7 +60,7 @@ public class Controller : MonoBehaviour
 
         //checks if shift is pressed for turbo speed
         //checks if right OR left is pressed 
-        if (Input.GetKey(KeyCode.LeftShift)|| Input.GetKey(KeyCode.RightShift))
+        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
         {
 
             //speed is set to the sprint speed that is set by desighners in the pawn 

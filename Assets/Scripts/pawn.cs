@@ -16,6 +16,16 @@ public class Pawn : MonoBehaviour
     public float teleportDistense;
 
 
+    // input key for random
+    public KeyCode inputkey;
+
+    //transform for random tp
+    public Transform location;
+    //public Vector2 spriteLocation;
+    public int randomRangeX1;
+    public int randomRangeY1;
+    public int randomRangeX2;
+    public int randomRangeY2;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -91,6 +101,10 @@ public class Pawn : MonoBehaviour
     public void teleportRight(float teleportDistense)
     {
         transform.position += Vector3.right * teleportDistense;
+    }
+
+    public void RandomTp(float randomRangeX1, float randomRangeX2, float randomRangeY1, float randomRangeY2) {
+        location.position = new Vector3(Random.Range(randomRangeX1, randomRangeX2), Random.Range(randomRangeY1, randomRangeY2), 0);
     }
 
 

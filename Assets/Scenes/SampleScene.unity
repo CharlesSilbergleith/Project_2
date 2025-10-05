@@ -340,6 +340,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &727958001
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 727958003}
+  - component: {fileID: 727958002}
+  m_Layer: 0
+  m_Name: Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &727958002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727958001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5cdc520e1cb1c7458a1cb7daa030b47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  pawn: {fileID: 2019326301}
+--- !u!4 &727958003
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727958001}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.01345, y: -0.00243, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2019326295
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,11 +395,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2019326297}
   - component: {fileID: 2019326296}
-  - component: {fileID: 2019326298}
   - component: {fileID: 2019326300}
   - component: {fileID: 2019326299}
+  - component: {fileID: 2019326301}
   m_Layer: 0
-  m_Name: SpriteMover
+  m_Name: Pawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -433,26 +478,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2019326298
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2019326295}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a2de25c4d951194b80491458def30a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Inputs
-  spriteRender: {fileID: 0}
-  inputkey: 0
-  newcolor: {r: 0, g: 0, b: 0, a: 0}
-  location: {fileID: 2019326297}
-  randomRangeX1: 0
-  randomRangeY1: 0
-  randomRangeX2: 0
-  randomRangeY2: 0
 --- !u!114 &2019326299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -483,6 +508,28 @@ MonoBehaviour:
   _data:
     _json: '{"declarations":{"Kind":"Object","collection":{"$content":[],"$version":"A"},"$version":"A"}}'
     _objectReferences: []
+--- !u!114 &2019326301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019326295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 100526969f293454daa91ed6ab6672d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  moveSpeed: 2.356
+  rotateValue: 200
+  sprintSpeed: 5
+  teleportDistense: 2
+  inputkey: 116
+  location: {fileID: 2019326297}
+  randomRangeX1: 10
+  randomRangeY1: 5
+  randomRangeX2: -10
+  randomRangeY2: -5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -490,3 +537,4 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 619394802}
   - {fileID: 2019326297}
+  - {fileID: 727958003}
