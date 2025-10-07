@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Pawn : MonoBehaviour
 {
+    [Header("movment")]
     //the normal speed in which the pawn moves
     public float moveSpeed;
 
@@ -27,9 +28,15 @@ public class Pawn : MonoBehaviour
     public int randomRangeX2;
     public int randomRangeY2;
 
+    [Header("Componets")]
+    public Health health;
+    public Death death;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        health = GetComponent<Health>();
+        death = GetComponent<Death>();
         
     }
 
