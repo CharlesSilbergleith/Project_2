@@ -7,8 +7,8 @@ public class DeathRecenter : Death
         //set game object to 0,0,0
         transform.position = Vector3.zero;
 
-        //as do noraml death
-        base.Die();
+
+      
 
     }
 

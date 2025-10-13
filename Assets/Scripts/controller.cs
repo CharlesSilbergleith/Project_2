@@ -4,6 +4,7 @@ public class Controller : MonoBehaviour
 {
     //create a refrance to the Pawn object 
     public Pawn pawn;
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,7 +26,7 @@ public class Controller : MonoBehaviour
 
     private void makeDesisions() {
         //ever frame this is called to check what is being pressed
-
+        
         if (Input.GetKeyDown(pawn.inputkey)) {
             pawn.RandomTp(pawn.randomRangeX1, pawn.randomRangeX2, pawn.randomRangeY1, pawn.randomRangeY2);
         }

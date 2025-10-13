@@ -31,6 +31,7 @@ public class Pawn : MonoBehaviour
     [Header("Componets")]
     public Health health;
     public Death death;
+   
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -43,7 +44,7 @@ public class Pawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+ 
     }
     //function called by the controller to move forward by a speed set by deginerns 
     //has the parameter of moveSpeed made in the pawn object

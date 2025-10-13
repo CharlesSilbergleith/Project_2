@@ -1,8 +1,15 @@
 using UnityEngine;
 
-public class Death : MonoBehaviour
+abstract public class  Death : MonoBehaviour
 {
-    public virtual void Die() {
-        Debug.Log("ugh... you got me");
+    public abstract void Die();
+    public void finalWords() {
+        Debug.Log("I have Died");
+    }
+
+    public void finalWords(string words)
+    {
+        Debug.Log(words);
     }
 }
+
