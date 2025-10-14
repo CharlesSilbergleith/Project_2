@@ -21,7 +21,10 @@ public class Controller : MonoBehaviour
             Debug.Log("Application Quit!");
         }
         //calls the function every frame to see what the inputs are
-        makeDesisions();
+        if (pawn != null)
+        {
+            makeDesisions();
+        }
     }
 
     private void makeDesisions() {
