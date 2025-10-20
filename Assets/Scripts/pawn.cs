@@ -1,7 +1,10 @@
 using UnityEngine;
 
 public class Pawn : MonoBehaviour
+    
 {
+    [Header("panw")]
+    public GameObject pawn;
     [Header("movment")]
     //the normal speed in which the pawn moves
     public float moveSpeed;
@@ -31,7 +34,13 @@ public class Pawn : MonoBehaviour
     [Header("Componets")]
     public Health health;
     public Death death;
+    [Header("Shooting")]
+    
+    public GameObject Bullet;
    
+    
+
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -44,7 +53,7 @@ public class Pawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
- 
+       
     }
     //function called by the controller to move forward by a speed set by deginerns 
     //has the parameter of moveSpeed made in the pawn object
@@ -115,6 +124,14 @@ public class Pawn : MonoBehaviour
         location.position = new Vector3(Random.Range(randomRangeX1, randomRangeX2), Random.Range(randomRangeY1, randomRangeY2), 0);
     }
 
+
+    public void Shoot() {
+        Instantiate(Bullet,pawn.transform.position + transform.up, pawn.transform.rotation);
+        //Debug.Log("Shoot");
+    }
+
+    
+  
 
 
 

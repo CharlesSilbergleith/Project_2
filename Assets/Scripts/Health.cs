@@ -6,7 +6,7 @@ public class Health : MonoBehaviour
     public float currentHealth;
     public float maxHealth;
     public SpriteRenderer spriteRenderer;
-    public float healthPercent;
+    private float healthPercent;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

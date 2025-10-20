@@ -4,6 +4,8 @@ public class Controller : MonoBehaviour
 {
     //create a refrance to the Pawn object 
     public Pawn pawn;
+
+
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -105,6 +107,11 @@ public class Controller : MonoBehaviour
             {
                 pawn.turnRight(pawn.rotateValue);
             }
+
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            pawn.Shoot();
+            
+        }
       
     }
 }

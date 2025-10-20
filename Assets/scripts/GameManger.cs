@@ -2,19 +2,27 @@ using UnityEngine;
 
 public class GameManger : MonoBehaviour
 {
-    public static GameManger instance;
-    private void Awake()
+    public static GameManger Instance;
+    public Controller controller;
+    public Pawn pawn;
+    public Enemy enemy;
+    public int numOfEnemy;
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
         }
-        else
-        {
+        else {
             Destroy(gameObject);
         }
-    }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+        numOfEnemy = 0;
+}
+
+
     void Start()
     {
         
@@ -23,6 +31,26 @@ public class GameManger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (enemy == null) {
+            gameWin();
+            gameEnd();
+        }
+        if (pawn == null) {
+            gameLose();
+            gameEnd();
+        }
         
     }
+    void gameEnd() {
+        Debug.Log("leave game");
+        
+    }
+    void gameWin() {
+        Debug.Log("You WIn good job..... reword...... what wining not enough.... greedy");
+    }
+    public void gameLose() {
+        Debug.Log("HA you suck... like holy shit that was bad..... do better");
+    
+    }
+
 }
