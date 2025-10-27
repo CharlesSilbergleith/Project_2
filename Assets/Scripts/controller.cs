@@ -31,7 +31,11 @@ public class Controller : MonoBehaviour
 
     private void makeDesisions() {
         //ever frame this is called to check what is being pressed
-        
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            pawn.Reload();
+        }
+
         if (Input.GetKeyDown(pawn.inputkey)) {
             pawn.RandomTp(pawn.randomRangeX1, pawn.randomRangeX2, pawn.randomRangeY1, pawn.randomRangeY2);
         }

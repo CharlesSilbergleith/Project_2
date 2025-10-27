@@ -37,7 +37,9 @@ public class Pawn : MonoBehaviour
     [Header("Shooting")]
     
     public GameObject Bullet;
-   
+
+    public int ammo;
+    public int ammoMax;
     
 
 
@@ -125,9 +127,16 @@ public class Pawn : MonoBehaviour
     }
 
 
-    public void Shoot() {
-        Instantiate(Bullet,pawn.transform.position + transform.up, pawn.transform.rotation);
+    public void Shoot()
+    {
+        if (ammo != 0) { 
+        Instantiate(Bullet, pawn.transform.position + transform.up, pawn.transform.rotation);
+            ammo -= 1;
+    }
         //Debug.Log("Shoot");
+    }
+    public void Reload() {
+        ammo = ammoMax;
     }
 
     

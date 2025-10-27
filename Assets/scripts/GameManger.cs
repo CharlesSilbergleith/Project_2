@@ -7,6 +7,11 @@ public class GameManger : MonoBehaviour
     public Pawn pawn;
     public Enemy enemy;
     public int numOfEnemy;
+    public int score;
+    public Health PawnHealth;
+    public Health EnemyHealth;
+    public UIManger UI;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -25,7 +30,8 @@ public class GameManger : MonoBehaviour
 
     void Start()
     {
-        
+        UI.scoreUpdate();
+
     }
 
     // Update is called once per frame
@@ -51,6 +57,18 @@ public class GameManger : MonoBehaviour
     public void gameLose() {
         Debug.Log("HA you suck... like holy shit that was bad..... do better");
     
+    }
+    public void reset() { 
+        score = 0;
+    }
+    public void scorePlus() {
+        score++;
+        UI.scoreUpdate();
+    }
+    public void scorePlus(int value)
+    {
+        score+= value;
+        UI.scoreUpdate();
     }
 
 }
