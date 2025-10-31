@@ -3,7 +3,7 @@ using UnityEngine;
 public class Pawn : MonoBehaviour
     
 {
-    [Header("panw")]
+    [Header("pawn")]
     public GameObject pawn;
     [Header("movment")]
     //the normal speed in which the pawn moves
@@ -40,7 +40,9 @@ public class Pawn : MonoBehaviour
 
     public int ammo;
     public int ammoMax;
-    
+    [Header("Sound")]
+    public AudioClip lasaerSound; 
+    public AudioSource audioSource;
 
 
 
@@ -49,7 +51,7 @@ public class Pawn : MonoBehaviour
     {
         health = GetComponent<Health>();
         death = GetComponent<Death>();
-        
+
     }
 
     // Update is called once per frame
@@ -62,13 +64,15 @@ public class Pawn : MonoBehaviour
     public void moveForward( float moveSpeed) {
         transform.position +=(transform.up* moveSpeed* Time.deltaTime);
     }
-
+    public void Stop() {
+    }
 
     //function called by the controller to move backwards by a speed set by deginerns 
     //has the parameter of moveSpeed made in the pawn object
     public void moveBackward(float moveSpeed)
     {
         transform.position += (-transform.up * moveSpeed * Time.deltaTime);
+
     }
 
 
@@ -76,7 +80,8 @@ public class Pawn : MonoBehaviour
     //has the parameter of rotateValue made in the pawn object
     public void turnLeft(float rotateValue) {
         transform.Rotate(0.0f, 0.0f, rotateValue * Time.deltaTime);
-    
+
+
     }
 
 
@@ -85,6 +90,7 @@ public class Pawn : MonoBehaviour
     public void turnRight(float rotateValue)
     {
         transform.Rotate(0.0f, 0.0f,- rotateValue * Time.deltaTime);
+
 
     }
 
@@ -132,7 +138,8 @@ public class Pawn : MonoBehaviour
         if (ammo != 0) { 
         Instantiate(Bullet, pawn.transform.position + transform.up, pawn.transform.rotation);
             ammo -= 1;
-    }
+            SFXManger.Instance.shoot();
+        }
         //Debug.Log("Shoot");
     }
     public void Reload() {
