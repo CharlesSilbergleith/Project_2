@@ -36,6 +36,15 @@ public class Controller : MonoBehaviour
             pawn.Reload();
         }
 
+
+
+        if (!(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))) {
+            pawn.stopPlaying();
+        }
+
+
+
+
         if (Input.GetKeyDown(pawn.inputkey)) {
             pawn.RandomTp(pawn.randomRangeX1, pawn.randomRangeX2, pawn.randomRangeY1, pawn.randomRangeY2);
         }
@@ -77,11 +86,18 @@ public class Controller : MonoBehaviour
             if (Input.GetKey(KeyCode.W))
             {
                 pawn.moveForward(pawn.sprintSpeed);
+                if (!pawn.audioSource.isPlaying)
+                {
+                    pawn.startPlaying();
+                }
             }
             if (Input.GetKey(KeyCode.S))
             {
                 pawn.moveBackward(pawn.sprintSpeed);
-
+                if (!pawn.audioSource.isPlaying)
+                {
+                    pawn.startPlaying();
+                }
             }
         }
         else
@@ -91,11 +107,18 @@ public class Controller : MonoBehaviour
             if (Input.GetKey(KeyCode.W))
             {
                 pawn.moveForward(pawn.moveSpeed);
+                if (!pawn.audioSource.isPlaying)
+                {
+                    pawn.startPlaying();
+                }
             }
             if (Input.GetKey(KeyCode.S))
             {
                 pawn.moveBackward(pawn.moveSpeed);
-
+                if (!pawn.audioSource.isPlaying)
+                {
+                    pawn.startPlaying();
+                }
             }
            
         }

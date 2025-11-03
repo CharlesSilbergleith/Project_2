@@ -41,7 +41,8 @@ public class Pawn : MonoBehaviour
     public int ammo;
     public int ammoMax;
     [Header("Sound")]
-    public AudioClip lasaerSound; 
+    public AudioClip lasaerSound;
+    public AudioClip Warp;
     public AudioSource audioSource;
 
 
@@ -64,8 +65,7 @@ public class Pawn : MonoBehaviour
     public void moveForward( float moveSpeed) {
         transform.position +=(transform.up* moveSpeed* Time.deltaTime);
     }
-    public void Stop() {
-    }
+
 
     //function called by the controller to move backwards by a speed set by deginerns 
     //has the parameter of moveSpeed made in the pawn object
@@ -99,6 +99,7 @@ public class Pawn : MonoBehaviour
     //has the parameter of teleportDistense made in the pawn object
     public void teleportUp( float teleportDistense) {
         transform.position+= Vector3.up * teleportDistense;
+        AudioSource.PlayClipAtPoint(Warp, transform.position);
     }
 
 
@@ -108,6 +109,8 @@ public class Pawn : MonoBehaviour
     public void teleportDown(float teleportDistense)
     {
         transform.position += Vector3.down * teleportDistense;
+        AudioSource.PlayClipAtPoint(Warp, transform.position);
+
     }
 
 
@@ -116,7 +119,10 @@ public class Pawn : MonoBehaviour
 
     public void teleportLeft(float teleportDistense)
     {
+        AudioSource.PlayClipAtPoint(Warp, transform.position);
         transform.position += Vector3.left * teleportDistense;
+        
+
     }
 
 
@@ -125,7 +131,10 @@ public class Pawn : MonoBehaviour
 
     public void teleportRight(float teleportDistense)
     {
+        AudioSource.PlayClipAtPoint(Warp, transform.position);
         transform.position += Vector3.right * teleportDistense;
+        
+
     }
 
     public void RandomTp(float randomRangeX1, float randomRangeX2, float randomRangeY1, float randomRangeY2) {
@@ -144,6 +153,14 @@ public class Pawn : MonoBehaviour
     }
     public void Reload() {
         ammo = ammoMax;
+    }
+
+    public void startPlaying() { 
+        audioSource.Play();
+    }
+
+    public void stopPlaying() { 
+        audioSource.Stop();
     }
 
     

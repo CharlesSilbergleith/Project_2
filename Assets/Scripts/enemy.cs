@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
     {
         health = GetComponent<Health>();
         death = GetComponent<Death>();
-        GameManger.Instance.numOfEnemy ++;
+        GameManger.Instance.numOfEnemy++;
         audioSource = GetComponent<AudioSource>();
 
     }
@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+
     }
+  
 }

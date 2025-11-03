@@ -9,8 +9,12 @@ public class SFXManger : MonoBehaviour
     public AudioClip explosion;
     public AudioClip highfrequency;
     public AudioClip Movement;
+    public AudioClip BackGroundNoise;
+    public AudioClip Warp;
+
     [Header("aduio Source")]
     public AudioSource audioSource;
+    public Pawn pawn;
     
     void Awake()
     {
@@ -40,7 +44,10 @@ public class SFXManger : MonoBehaviour
     }
     public void shoot()
     {
+       
         audioSource.PlayOneShot(laser);
     }
+   
+
 
 }
