@@ -12,7 +12,7 @@ public class WorldSpaceHeathBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
     public void Updatehealthbar(float currnet, float max) {
         slider.value = currnet / max;

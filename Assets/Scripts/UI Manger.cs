@@ -4,16 +4,35 @@ using TMPro;
 
 public class UIManger : MonoBehaviour
 {
+    public static UIManger Instance;
     public Image health;
     public TMP_Text score;
     public TMP_Text ammo;
+    public TMP_Text Win;
+    public TMP_Text Die;
 
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+       
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         GameManger.Instance.reset();
-        score.text = " Score ";
-        ammo.text = " Score ";
+        scoreUpdate();
+        Win.enabled = false;
+        Die.enabled = false;
+
+
     }
 
     // Update is called once per frame

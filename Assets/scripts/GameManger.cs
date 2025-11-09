@@ -1,21 +1,31 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class GameManger : MonoBehaviour
 {
     public static GameManger Instance;
     public Controller controller;
     public Pawn pawn;
-    public Enemy enemy;
+    public GameObject BigAstroid;
+    public GameObject UFO;
+    public GameObject LittleAstroid;
     public int numOfEnemy;
-    public int score;
+    public float score;
     public Health PawnHealth;
-    public Health EnemyHealth;
     public UIManger UI;
+    public float lives;
+    private int astroidOrNot;
+    public float timeTillLeave = 4f;
+    private bool win;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
+        
+
+
         if (Instance == null)
         {
             Instance = this;
@@ -23,40 +33,88 @@ public class GameManger : MonoBehaviour
         else {
             Destroy(gameObject);
         }
-
-        numOfEnemy = 0;
+        for (int i = numOfEnemy; i > 0; i--) {
+            astroidOrNot = Random.Range(1, 5);
+            if (astroidOrNot <= 2) {
+                Instantiate(BigAstroid);
+            }
+            else
+            {
+                Instantiate(UFO);
+            }
+        }
+        
+       
 }
 
 
     void Start()
     {
         UI.scoreUpdate();
+        
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (enemy == null) {
+        if (numOfEnemy == 0) {
             gameWin();
             gameEnd();
         }
-        if (pawn == null) {
+        if (lives == 0) {
             gameLose();
             gameEnd();
         }
+        if (pawn == null) { 
+            Instantiate(pawn, Vector3.zero, Quaternion.identity);
+            
+        }
+
         
     }
-    void gameEnd() {
-        Debug.Log("leave game");
+    public void gameEnd()
+    {
         
+        StartCoroutine(LoadNextSceneAfterDelay(3f));
     }
+
+    private IEnumerator LoadNextSceneAfterDelay(float delay)
+    {
+        // Optional: pause the game
+        Time.timeScale = 0f;
+
+        // Wait 3 real seconds (unaffected by pause)
+        yield return new WaitForSecondsRealtime(delay);
+
+        // Restore normal time before switching scenes
+        Time.timeScale = 1f;
+
+        // Load next scene
+        if (!win)
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
+        else { 
+            SceneManager.LoadScene("playWorld");
+        }
+
+           
+    }
+
     void gameWin() {
-        Debug.Log("You WIn good job..... reword...... what wining not enough.... greedy");
+        UIManger.Instance.Win.enabled = true;
+        win = true;
+        
+        //Debug.Log("You WIn good job..... reword...... what wining not enough.... greedy");
     }
     public void gameLose() {
-        Debug.Log("HA you suck... like holy shit that was bad..... do better");
-    
+        UIManger.Instance.Die.enabled = true;
+        win = false;
+        //Debug.Log("HA you suck... like holy shit that was bad..... do better");
+        score = 0;
+        lives = 3;
+
     }
     public void reset() { 
         score = 0;

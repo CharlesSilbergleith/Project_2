@@ -1,10 +1,12 @@
 using UnityEngine;
 
+
 public class Pawn : MonoBehaviour
     
 {
     [Header("pawn")]
     public GameObject pawn;
+    
     [Header("movment")]
     //the normal speed in which the pawn moves
     public float moveSpeed;
@@ -45,11 +47,12 @@ public class Pawn : MonoBehaviour
     public AudioClip Warp;
     public AudioSource audioSource;
 
-
+   
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        
         health = GetComponent<Health>();
         death = GetComponent<Death>();
 
@@ -58,7 +61,19 @@ public class Pawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        if (transform.position.x > 11f || transform.position.x < -11f) {
+
+            transform.position = new Vector3(transform.position.x*-1, transform.position.y, transform.position.z);
+        }
+        if (transform.position.y > 6f || transform.position.y < -6f)
+        {
+
+            transform.position = new Vector3(transform.position.x  , transform.position.y*-1, transform.position.z);
+        }
+
+
+
+
     }
     //function called by the controller to move forward by a speed set by deginerns 
     //has the parameter of moveSpeed made in the pawn object
@@ -161,6 +176,10 @@ public class Pawn : MonoBehaviour
 
     public void stopPlaying() { 
         audioSource.Stop();
+    }
+
+    public void zero() {
+        transform.position = Vector3.zero;
     }
 
     

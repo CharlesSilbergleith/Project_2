@@ -69,7 +69,7 @@ public class Health : MonoBehaviour
         if (death != null) { 
             //die
             death.Die();
-            death.finalWords();
+            
             Heal(maxHealth);
         }
     }

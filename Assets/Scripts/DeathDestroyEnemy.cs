@@ -8,6 +8,7 @@ public class DeathDestroyEnemy : DeathDestroy
     {
         GameManger.Instance.scorePlus();
         SFXManger.Instance.expload();
+        GameManger.Instance.numOfEnemy-=1;
         //destroy the game object that this script is on
         base.Die();
         

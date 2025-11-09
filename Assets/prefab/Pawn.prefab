@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3972475399554332127}
   - component: {fileID: 5699825731719246215}
   - component: {fileID: 7734283624692868674}
+  - component: {fileID: -6064790977463349476}
   m_Layer: 0
   m_Name: Pawn
   m_TagString: Untagged
@@ -138,6 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 100526969f293454daa91ed6ab6672d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  pawn: {fileID: 0}
   moveSpeed: 2.356
   rotateValue: 200
   sprintSpeed: 5
@@ -150,6 +152,12 @@ MonoBehaviour:
   randomRangeY2: -4
   health: {fileID: 3972475399554332127}
   death: {fileID: 5699825731719246215}
+  Bullet: {fileID: 0}
+  ammo: 10
+  ammoMax: 10
+  lasaerSound: {fileID: 0}
+  Warp: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!114 &3972475399554332127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,3 +263,11 @@ PolygonCollider2D:
       - {x: 0.43112737, y: -0.26123062}
       - {x: 0.46861467, y: -0.25876933}
   m_UseDelaunayMesh: 0
+--- !u!81 &-6064790977463349476
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6173177570422251933}
+  m_Enabled: 1

@@ -10,7 +10,11 @@ public class EnemyHealth : Health
     void awake()
     {
         healthBar = GetComponentInChildren<Slider>();
+        healthBar.value = healthPercent;
 
+    }
+    void update() {
+        healthBar.value = healthPercent;
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
      public override void TakeDamage(float damage)
@@ -33,5 +37,6 @@ public class EnemyHealth : Health
 
         
     }
+  
 
 }

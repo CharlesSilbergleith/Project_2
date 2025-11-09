@@ -16,9 +16,11 @@ public class DamgeOnHit : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other) {
         Health otherHealth = other.gameObject.GetComponent<Health>();
+        Pawn    otherPawn = other.gameObject.GetComponent<Pawn>();
+        UFO otherUFO = other.gameObject.GetComponent<UFO>();
         if (InstaDeath)
         {
-            if (otherHealth != null)
+            if (otherHealth != null && otherPawn != null )
             {
                 otherHealth.TakeDamage(otherHealth.maxHealth);
             }
@@ -26,11 +28,12 @@ public class DamgeOnHit : MonoBehaviour
         else
         {
             //Health otherHealth = other.gameObject.GetComponent<Health>();
-            if (otherHealth != null)
+            if (otherHealth != null && otherPawn != null)
             {
                 otherHealth.TakeDamage(1);
             }
         }
+        
 
 
     }
