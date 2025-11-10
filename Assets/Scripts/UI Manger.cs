@@ -10,6 +10,7 @@ public class UIManger : MonoBehaviour
     public TMP_Text ammo;
     public TMP_Text Win;
     public TMP_Text Die;
+    public TMP_Text Life;
 
     void Awake()
     {
@@ -28,7 +29,7 @@ public class UIManger : MonoBehaviour
     void Start()
     {
         GameManger.Instance.reset();
-        scoreUpdate();
+        ScreenUpdate();
         Win.enabled = false;
         Die.enabled = false;
 
@@ -42,7 +43,8 @@ public class UIManger : MonoBehaviour
         ammo.text = "Ammo: " + GameManger.Instance.pawn.ammo + "/" + GameManger.Instance.pawn.ammoMax;
         health.fillAmount = GameManger.Instance.PawnHealth.currentHealth*.1f;
     }
-    public void scoreUpdate() {
+    public void ScreenUpdate() {
         score.text = "Score: " + GameManger.Instance.score;
+        Life.text = "Life: "+ GameManger.Instance.lives;
     }
 }

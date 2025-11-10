@@ -18,6 +18,13 @@ public class GameManger : MonoBehaviour
     private int astroidOrNot;
     public float timeTillLeave = 4f;
     private bool win;
+    public int maxX;
+    public int maxY;
+    public int minX;   
+    public int minY;
+    public int chanceMax;
+    public int chanceMin;
+    public int chanceOfAstroid;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -34,8 +41,8 @@ public class GameManger : MonoBehaviour
             Destroy(gameObject);
         }
         for (int i = numOfEnemy; i > 0; i--) {
-            astroidOrNot = Random.Range(1, 5);
-            if (astroidOrNot <= 2) {
+            astroidOrNot = Random.Range(chanceMax, chanceMin);
+            if (astroidOrNot <= chanceOfAstroid) {
                 Instantiate(BigAstroid);
             }
             else
@@ -43,6 +50,7 @@ public class GameManger : MonoBehaviour
                 Instantiate(UFO);
             }
         }
+        lives = 3;
         
        
 }
@@ -50,7 +58,7 @@ public class GameManger : MonoBehaviour
 
     void Start()
     {
-        UI.scoreUpdate();
+        UI.ScreenUpdate();
         
 
     }
@@ -62,7 +70,7 @@ public class GameManger : MonoBehaviour
             gameWin();
             gameEnd();
         }
-        if (lives == 0) {
+        if (lives <= 0) {
             gameLose();
             gameEnd();
         }
@@ -121,12 +129,12 @@ public class GameManger : MonoBehaviour
     }
     public void scorePlus() {
         score++;
-        UI.scoreUpdate();
+        UI.ScreenUpdate();
     }
     public void scorePlus(int value)
     {
         score+= value;
-        UI.scoreUpdate();
+        UI.ScreenUpdate();
     }
 
 }

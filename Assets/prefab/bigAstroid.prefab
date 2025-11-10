@@ -234,6 +234,7 @@ MonoBehaviour:
   randomRangeY1: 4
   randomRangeX2: -8
   randomRangeY2: -4
+  moveSpeed: 2
 --- !u!82 &6257409464480468228
 AudioSource:
   m_ObjectHideFlags: 0

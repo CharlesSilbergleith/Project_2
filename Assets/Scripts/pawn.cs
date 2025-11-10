@@ -61,14 +61,15 @@ public class Pawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.x > 11f || transform.position.x < -11f) {
-
-            transform.position = new Vector3(transform.position.x*-1, transform.position.y, transform.position.z);
-        }
-        if (transform.position.y > 6f || transform.position.y < -6f)
+        if (transform.position.x > GameManger.Instance.maxX + 1 || transform.position.x < GameManger.Instance.minX - 1)
         {
 
-            transform.position = new Vector3(transform.position.x  , transform.position.y*-1, transform.position.z);
+            transform.position = new Vector3(transform.position.x * -1, transform.position.y, transform.position.z);
+        }
+        if (transform.position.y > GameManger.Instance.maxY + 1 || transform.position.y < GameManger.Instance.minY - 1)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y * -1, transform.position.z);
+
         }
 
 
@@ -182,8 +183,18 @@ public class Pawn : MonoBehaviour
         transform.position = Vector3.zero;
     }
 
-    
-  
+
+    void OnTriggerEnter2D(Collider2D other) {
+        UFO otherUFO = other.gameObject.GetComponent<UFO>();
+        Health otherHealth = other.gameObject.GetComponent<Health>();
+        if (otherUFO != null) {
+            otherHealth.TakeDamage(otherHealth.maxHealth);
+        }
+
+
+
+
+    }
 
 
 

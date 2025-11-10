@@ -23,6 +23,7 @@ public class DamgeOnHit : MonoBehaviour
             if (otherHealth != null && otherPawn != null )
             {
                 otherHealth.TakeDamage(otherHealth.maxHealth);
+                GameManger.Instance.UI.ScreenUpdate();
             }
         }
         else
@@ -31,6 +32,7 @@ public class DamgeOnHit : MonoBehaviour
             if (otherHealth != null && otherPawn != null)
             {
                 otherHealth.TakeDamage(1);
+                GameManger.Instance.UI.ScreenUpdate();
             }
         }
         
